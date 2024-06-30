@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/IOTPlan/static/css/main.e3e59167.css",
+    "main.js": "/IOTPlan/static/js/main.8f880092.js",
+    "static/js/453.e2178a37.chunk.js": "/IOTPlan/static/js/453.e2178a37.chunk.js",
+    "index.html": "/IOTPlan/index.html",
+    "main.e3e59167.css.map": "/IOTPlan/static/css/main.e3e59167.css.map",
+    "main.8f880092.js.map": "/IOTPlan/static/js/main.8f880092.js.map",
+    "453.e2178a37.chunk.js.map": "/IOTPlan/static/js/453.e2178a37.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e3e59167.css",
+    "static/js/main.8f880092.js"
+  ]
+}
