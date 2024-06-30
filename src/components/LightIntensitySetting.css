@@ -1,0 +1,41 @@
+.setting-button {
+    background-color: #4CAF50;
+    /* Màu xanh lá cây */
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+}
+
+.form-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.update-button {
+    background-color: #4CAF50;
+    /* Màu xanh lá cây */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.light-intensity-setting label {
+    display: block;
+    margin: 10px 0;
+}
+
+.light-intensity-setting input[type="number"],
+.light-intensity-setting input[type="password"],
+.light-intensity-setting select {
+    padding: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+}

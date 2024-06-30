@@ -1,22 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
-
+import SensorData from "./components/SensorData";
+import DeleteButton from "./components/DeleteButton";
+import SettingButton from "./components/SettingButton";
+import Calculate from "./components/Calculate";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Nguyễn Thế Vinh </h1>
+
+        <SensorData />
+        <DeleteButton />
+        <SettingButton />
+        <Calculate />
+
       </header>
     </div>
   );

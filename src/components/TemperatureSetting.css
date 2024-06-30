@@ -1,0 +1,42 @@
+.temperature-setting .form-group {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.temperature-setting .form-group input[type="number"],
+.temperature-setting .form-group select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.temperature-setting .form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.temperature-setting .update-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.temperature-setting .update-button:hover {
+    background-color: #45a049;
+}
+
+.temperature-setting .update-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
