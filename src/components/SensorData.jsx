@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './NhapData.css'; // Import CSS file
+import InfoTooltip from './InfoTooltip'; // Import InfoTooltip component
 
 function CurrentTime() {
     const [currentTime, setCurrentTime] = useState('');
@@ -14,7 +14,6 @@ function CurrentTime() {
             const dateString = now.toLocaleDateString();
             setCurrentTime(timeString);
             setDate(dateString);
-            postDateTime(timeString, dateString);
         };
 
         updateDateTime();
@@ -49,45 +48,53 @@ function CurrentTime() {
         fetchData();
     }, []);
 
-    const postDateTime = async (time, date) => {
-        const data = {
-            time,
-            date
-        };
+    const containerStyle = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: '20px',
+        fontFamily: 'Arial, sans-serif'
+    };
 
-        try {
-            const response = await fetch('https://your-api-endpoint.com/postDateTime', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
+    const dataContainerStyle = {
+        marginTop: '20px'
+    };
 
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
-            const responseData = await response.json();
-            console.log('Successfully posted data:', responseData);
-        } catch (error) {
-            console.error('Error posting data:', error);
-        }
+    const dataBoxStyle = {
+        border: '1px solid #ccc',
+        borderRadius: '10px',
+        padding: '20px',
+        position: 'relative',
+        width: '300px',
+        margin: 'auto'  // Center the box horizontally
     };
 
     return (
-        <div className="container">
+        <div style={containerStyle}>
             <h1>Thời gian hiện tại: {currentTime}</h1>
             <h2>Ngày tháng năm hiện tại: {date}</h2>
-            <div className="data-container">
-                {data && (
-                    <div className="data-box">
-                        <p>Nhiệt độ: {data.Temperature} °C</p>
-                        <p>Độ ẩm: {data.Humidity} %</p>
-                        <p>Cường độ ánh sáng: {data.LightStrength} lux</p>
-                    </div>
-                )}
-                {error && <div className="error">{error}</div>}
+            <div style={dataContainerStyle}>
+                <div style={dataBoxStyle}>
+                    <h3>
+                        Thông số cảm biến
+                        <InfoTooltip
+                            tooltipContent={
+                                <>
+                                    <h4>Thông tin</h4>
+
+                                </>
+                            }
+                        />
+                    </h3>
+                    {data && (
+                        <>
+                            <p>Nhiệt độ: {data.Temperature} °C</p>
+                            <p>Độ ẩm: {data.Humidity} %</p>
+                            <p>Cường độ ánh sáng: {data.LightStrength} lux</p>
+                        </>
+                    )}
+                    {error && <div className="error">{error}</div>}
+                </div>
             </div>
         </div>
     );
