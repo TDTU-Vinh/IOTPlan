@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/IOTPlan/static/css/main.e3e59167.css",
-    "main.js": "/IOTPlan/static/js/main.8f880092.js",
+    "main.css": "/IOTPlan/static/css/main.8877064b.css",
+    "main.js": "/IOTPlan/static/js/main.7aafd1bf.js",
     "static/js/453.e2178a37.chunk.js": "/IOTPlan/static/js/453.e2178a37.chunk.js",
+    "static/media/logo.jpg": "/IOTPlan/static/media/logo.6bfd5ed75a711e0c6afd.jpg",
     "index.html": "/IOTPlan/index.html",
-    "main.e3e59167.css.map": "/IOTPlan/static/css/main.e3e59167.css.map",
-    "main.8f880092.js.map": "/IOTPlan/static/js/main.8f880092.js.map",
+    "main.8877064b.css.map": "/IOTPlan/static/css/main.8877064b.css.map",
+    "main.7aafd1bf.js.map": "/IOTPlan/static/js/main.7aafd1bf.js.map",
     "453.e2178a37.chunk.js.map": "/IOTPlan/static/js/453.e2178a37.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e3e59167.css",
-    "static/js/main.8f880092.js"
+    "static/css/main.8877064b.css",
+    "static/js/main.7aafd1bf.js"
   ]
 }
