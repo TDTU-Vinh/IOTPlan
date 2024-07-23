@@ -5,6 +5,9 @@ import SettingButton from "./components/SettingButton";
 import Calculate from "./components/Calculate";
 import logo from './assets/logo.jpg'; // Import hình ảnh logo
 import Get20Data from './components/Get20Data';
+import AdvanceSettings from './components/advance'
+
+
 
 function App() {
   const logoStyle = {
@@ -24,6 +27,8 @@ function App() {
         <DeleteButton />
         <SettingButton />
         <Calculate />
+        <AdvanceSettings />
+
       </header>
     </div>
   );

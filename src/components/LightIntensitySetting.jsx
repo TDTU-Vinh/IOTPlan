@@ -74,9 +74,9 @@ function LightIntensitySetting() {
         }
 
         const postData = {
-            Light_Kp: Number(lightSettings.Light_Kp),
-            Light_Ki: Number(lightSettings.Light_Ki),
-            Light_Kd: Number(lightSettings.Light_Kd),
+            // Light_Kp: Number(lightSettings.Light_Kp),
+            // Light_Ki: Number(lightSettings.Light_Ki),
+            // Light_Kd: Number(lightSettings.Light_Kd),
             Light_SetpointValue: Number(lightSettings.Light_SetpointValue)
         };
 
@@ -172,7 +172,7 @@ function LightIntensitySetting() {
                             {accessError && <p style={{ color: 'red' }}>{accessError}</p>}
                         </div>
                     )}
-                    <div style={formGroupStyle}>
+                    {/* <div style={formGroupStyle}>
                         <label>
                             Thông số Kp:
                             <input
@@ -204,7 +204,7 @@ function LightIntensitySetting() {
                                 onChange={handleInputChange}
                             />
                         </label>
-                    </div>
+                    </div> */}
                     <div style={formGroupStyle}>
                         <label>
                             Cài đặt cường độ ánh sáng:
