@@ -93,7 +93,7 @@ function CurrentTime() {
                             <p>Nhiệt độ: {data.Temperature} °C</p>
                             <p>Độ ẩm: {data.Humidity} %</p>
                             <p>Cường độ ánh sáng: {data.LightStrength} lux</p>
-                            <p>Nồng độ DO : {data.Air_Quality} ppm</p>
+                            <p>Nồng độ CO : {data.Air_Quality} ppm</p>
                         </>
                     )}
                     {error && <div className="error">{error}</div>}
