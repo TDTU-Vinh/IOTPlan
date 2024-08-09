@@ -88,7 +88,10 @@ const InfoTooltip = () => {
 
                     <p style={infoStyle}>Cài đặt Nhiệt độ </p>
                     <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Auto: </span> {data.TemperatureSetting_Access ? 'On' : 'OFF'}</p>
-                    <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Nhiệt độ cài đặt: </span> {data.Temperature_SetpointValue}</p>
+                    <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Nhiệt độ cài đặt (cao): </span> {data.Temperature_SetpointValue}</p>
+                    <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Nhiệt độ cài đặt (thấp): </span> {data.Temperature_MinValue}</p>
+
+
                 </>
             );
         }
@@ -117,7 +120,10 @@ const InfoTooltip = () => {
 
                     <p style={infoStyle}>Cài đặt Nhiệt độ </p>
                     <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Auto: </span> {data.TemperatureSetting_Access ? 'On' : 'OFF'}</p>
-                    <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Nhiệt độ cài đặt: </span> {data.Temperature_SetpointValue}</p>
+                    <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Nhiệt độ cài đặt (cao): </span> {data.Temperature_SetpointValue}</p>
+                    <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Nhiệt độ cài đặt (thấp): </span> {data.Temperature_MinValue}</p>
+
+
                 </>
             );
         }
@@ -146,7 +152,10 @@ const InfoTooltip = () => {
 
                     <p style={infoStyle}>Cài đặt Nhiệt độ </p>
                     <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Auto: </span> {data.TemperatureSetting_Access ? 'On' : 'OFF'}</p>
-                    <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Nhiệt độ cài đặt: </span> {data.Temperature_SetpointValue}</p>
+                    <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Nhiệt độ cài đặt (cao): </span> {data.Temperature_SetpointValue}</p>
+                    <p style={infoStyle}><span style={{ marginLeft: '40px' }}>Nhiệt độ cài đặt (thấp): </span> {data.Temperature_MinValue}</p>
+
+
                 </>
             );
         }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-function AdvanceSettings() {
-    const [lightSettings, setLightSettings] = useState({
-        Light_Kp: '',
-        Light_Ki: '',
-        Light_Kd: ''
+function TempSetup() {
+    const [tempSettings, setTempSettings] = useState({
+        Temperature_Kp: '',
+        Temperature_Ki: '',
+        Temperature_Kd: ''
     });
     const [paramsPassword, setParamsPassword] = useState('');
     const [showParamsPasswordPrompt, setShowParamsPasswordPrompt] = useState(false);
@@ -13,9 +13,8 @@ function AdvanceSettings() {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        // Kiểm tra và chỉ cho phép nhập số thập phân hợp lệ
         if (value === '' || /^-?\d*\.?\d*$/.test(value)) {
-            setLightSettings(prevSettings => ({
+            setTempSettings(prevSettings => ({
                 ...prevSettings,
                 [name]: value
             }));
@@ -27,19 +26,19 @@ function AdvanceSettings() {
     };
 
     const handleParamsUpdateClick = async () => {
-        if (paramsPassword !== '111111') {
+        if (paramsPassword !== '123456') {
             setParamsError('Mật khẩu không đúng, vui lòng thử lại.');
             return;
         }
 
         const postData = {
-            Light_Kp: parseFloat(lightSettings.Light_Kp),
-            Light_Ki: parseFloat(lightSettings.Light_Ki),
-            Light_Kd: parseFloat(lightSettings.Light_Kd)
+            Temperature_Kp: parseFloat(tempSettings.Temperature_Kp),
+            Temperature_Ki: parseFloat(tempSettings.Temperature_Ki),
+            Temperature_Kd: parseFloat(tempSettings.Temperature_Kd)
         };
 
         try {
-            const response = await fetch('https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-cavmt/endpoint/advanceSettings', {
+            const response = await fetch('https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-cavmt/endpoint/advanceTemp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -92,39 +91,39 @@ function AdvanceSettings() {
     return (
         <div style={centerStyle}>
             <button className="setting-button" onClick={toggleForm}>
-                Điều chỉnh nâng cao cường độ ánh sáng
+                Cài đặt nâng cao nhiệt độ
             </button>
             {showForm && (
                 <div style={centerStyle}>
                     <div style={formGroupStyle}>
                         <label>
-                            Thông số Kp đèn:
+                            Thông số Kp nhiệt độ:
                             <input
                                 type="text"
-                                name="Light_Kp"
-                                value={lightSettings.Light_Kp}
+                                name="Temperature_Kp"
+                                value={tempSettings.Temperature_Kp}
                                 onChange={handleInputChange}
                             />
                         </label>
                     </div>
                     <div style={formGroupStyle}>
                         <label>
-                            Thông số Ki đèn:
+                            Thông số Ki nhiệt độ:
                             <input
                                 type="text"
-                                name="Light_Ki"
-                                value={lightSettings.Light_Ki}
+                                name="Temperature_Ki"
+                                value={tempSettings.Temperature_Ki}
                                 onChange={handleInputChange}
                             />
                         </label>
                     </div>
                     <div style={formGroupStyle}>
                         <label>
-                            Thông số Kd đèn:
+                            Thông số Kd nhiệt độ:
                             <input
                                 type="text"
-                                name="Light_Kd"
-                                value={lightSettings.Light_Kd}
+                                name="Temperature_Kd"
+                                value={tempSettings.Temperature_Kd}
                                 onChange={handleInputChange}
                             />
                         </label>
@@ -154,4 +153,4 @@ function AdvanceSettings() {
     );
 }
 
-export default AdvanceSettings;
+export default TempSetup;

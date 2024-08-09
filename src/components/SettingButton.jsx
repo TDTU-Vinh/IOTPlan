@@ -5,6 +5,7 @@ import LightIntensitySetting from './LightIntensitySetting';
 import TemperatureSetting from './TemperatureSetting';
 import FertilizerSetting from './FertilizerSetting';
 import WaterFlowSetting from './WaterFlowSetting';
+import ShieldSetting from './ShieldSetting';
 
 function SettingButton() {
     const [showSettings, setShowSettings] = useState(false);
@@ -25,6 +26,7 @@ function SettingButton() {
                         <TemperatureSetting />
                         <FertilizerSetting />
                         <WaterFlowSetting />
+                        <ShieldSetting />
                     </div>
                 </div>
             )}

@@ -3,14 +3,18 @@ import React, { useState } from 'react';
 function TemperatureSetting() {
     const [temperatureSettings, setTemperatureSettings] = useState({
         TemperatureSetting_Access: false,
-        Temperature_SetpointValue: ''
+        Temperature_SetpointValue: '',
+        Temperature_MinValue: ''
     });
     const [accessPassword, setAccessPassword] = useState('');
     const [setpointPassword, setSetpointPassword] = useState('');
+    const [minValuePassword, setMinValuePassword] = useState('');
     const [showAccessPasswordPrompt, setShowAccessPasswordPrompt] = useState(false);
     const [showSetpointPasswordPrompt, setShowSetpointPasswordPrompt] = useState(false);
+    const [showMinValuePasswordPrompt, setShowMinValuePasswordPrompt] = useState(false);
     const [accessError, setAccessError] = useState('');
     const [setpointError, setSetpointError] = useState('');
+    const [minValueError, setMinValueError] = useState('');
     const [showForm, setShowForm] = useState(false);
 
     const handleInputChange = (e) => {
@@ -28,6 +32,10 @@ function TemperatureSetting() {
 
     const handleSetpointPasswordChange = (e) => {
         setSetpointPassword(e.target.value);
+    };
+
+    const handleMinValuePasswordChange = (e) => {
+        setMinValuePassword(e.target.value);
     };
 
     const handleAccessUpdateClick = async () => {
@@ -56,7 +64,6 @@ function TemperatureSetting() {
             const responseData = await response.json();
             console.log('Success:', responseData);
 
-            // Clear password and error after successful update
             setAccessPassword('');
             setAccessError('');
             setShowAccessPasswordPrompt(false);
@@ -91,10 +98,43 @@ function TemperatureSetting() {
             const responseData = await response.json();
             console.log('Success:', responseData);
 
-            // Clear password and error after successful update
             setSetpointPassword('');
             setSetpointError('');
             setShowSetpointPasswordPrompt(false);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    const handleMinValueUpdateClick = async () => {
+        if (minValuePassword !== '123456') {
+            setMinValueError('Mật khẩu không đúng, vui lòng thử lại.');
+            return;
+        }
+
+        const postData = {
+            Temperature_MinValue: Number(temperatureSettings.Temperature_MinValue)
+        };
+
+        try {
+            const response = await fetch('https://ap-southeast-1.aws.data.mongodb-api.com/app/application-0-cavmt/endpoint/TemperatureChangeMin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const responseData = await response.json();
+            console.log('Success:', responseData);
+
+            setMinValuePassword('');
+            setMinValueError('');
+            setShowMinValuePasswordPrompt(false);
         } catch (error) {
             console.error('Error:', error);
         }
@@ -109,6 +149,8 @@ function TemperatureSetting() {
             setShowAccessPasswordPrompt(prevShowAccessPasswordPrompt => !prevShowAccessPasswordPrompt);
         } else if (type === 'setpoint') {
             setShowSetpointPasswordPrompt(prevShowSetpointPasswordPrompt => !prevShowSetpointPasswordPrompt);
+        } else if (type === 'minValue') {
+            setShowMinValuePasswordPrompt(prevShowMinValuePasswordPrompt => !prevShowMinValuePasswordPrompt);
         }
     };
 
@@ -170,7 +212,7 @@ function TemperatureSetting() {
                     )}
                     <div style={formGroupStyle}>
                         <label>
-                            Nhập giá trị cài đặt nhiệt độ:
+                            Giá trị ngưỡng cao nhất của cây trồng:
                             <input
                                 type="number"
                                 name="Temperature_SetpointValue"
@@ -194,6 +236,34 @@ function TemperatureSetting() {
                             </label>
                             <button onClick={handleSetpointUpdateClick}>Xác nhận</button>
                             {setpointError && <p style={{ color: 'red' }}>{setpointError}</p>}
+                        </div>
+                    )}
+                    <div style={formGroupStyle}>
+                        <label>
+                            Giá trị thấp nhất của cây trồng:
+                            <input
+                                type="number"
+                                name="Temperature_MinValue"
+                                value={temperatureSettings.Temperature_MinValue}
+                                onChange={handleInputChange}
+                            />
+                        </label>
+                        <button className="update-button" onClick={() => togglePasswordPrompt('minValue')} style={{ marginLeft: '10px' }}>
+                            Cập nhật mật khẩu
+                        </button>
+                    </div>
+                    {showMinValuePasswordPrompt && (
+                        <div style={passwordPromptStyle}>
+                            <label>
+                                Mật khẩu:
+                                <input
+                                    type="password"
+                                    value={minValuePassword}
+                                    onChange={handleMinValuePasswordChange}
+                                />
+                            </label>
+                            <button onClick={handleMinValueUpdateClick}>Xác nhận</button>
+                            {minValueError && <p style={{ color: 'red' }}>{minValueError}</p>}
                         </div>
                     )}
                 </div>
