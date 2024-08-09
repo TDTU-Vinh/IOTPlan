@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/IOTPlan/static/css/main.8877064b.css",
-    "main.js": "/IOTPlan/static/js/main.443fbc92.js",
+    "main.js": "/IOTPlan/static/js/main.5927cbf5.js",
     "static/js/453.e2178a37.chunk.js": "/IOTPlan/static/js/453.e2178a37.chunk.js",
     "static/media/logo.jpg": "/IOTPlan/static/media/logo.6bfd5ed75a711e0c6afd.jpg",
     "index.html": "/IOTPlan/index.html",
     "main.8877064b.css.map": "/IOTPlan/static/css/main.8877064b.css.map",
-    "main.443fbc92.js.map": "/IOTPlan/static/js/main.443fbc92.js.map",
+    "main.5927cbf5.js.map": "/IOTPlan/static/js/main.5927cbf5.js.map",
     "453.e2178a37.chunk.js.map": "/IOTPlan/static/js/453.e2178a37.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8877064b.css",
-    "static/js/main.443fbc92.js"
+    "static/js/main.5927cbf5.js"
   ]
 }
